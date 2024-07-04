@@ -1,0 +1,44 @@
+﻿@model List<ResultRoomsViewModel.Result>
+<section class="roberto-rooms-area">
+    <div class="rooms-slides owl-carousel">
+
+        @foreach (var item in Model)
+        {
+            <div class="single-room-slide d-flex align-items-center">
+
+                <div class="room-thumbnail h-100 bg-img" style="background-image: url(@item.photoMainUrl); background-size:cover"></div>
+
+                <div class="room-content">
+                    <h2  >@(item.name.Length >= 15 ? item.name.Substring(0, 15) + ".." : item.name)</h2>
+                    <h3 ><span>@item.priceBreakdown.grossPrice.value.ToString("0.00") @item.priceBreakdown.grossPrice.currency</span></h3>
+                    <ul class="room-feature" >
+                        <li><span><i class="fa fa-check"></i> Skor</span> <span>: @item.reviewScore</span></li>
+                        <li><span><i class="fa fa-check"></i> Giriş Tarihi </span> <span>: @item.checkinDate</span></li>
+                        <li><span><i class="fa fa-check"></i> Çıkış Tarihi </span> <span>: @item.checkinDate</span></li>
+                        <li>
+                            <span><i class="fa fa-check"></i> Ek Özelliker</span>
+                            @if (item.proposedAccommodation != null)
+                            {
+                                @for (int i = 0; i < item.proposedAccommodation.Count(); i++)
+                                {
+                                    <span>@item.proposedAccommodation[i] </span>
+                                }
+                            }
+                            else
+                            {
+                                <span>Yok </span>
+                            }
+
+                        </li>
+
+                    </ul>
+                    <a href="/Default/GetHotelDetails/@item.id?checkindate=@item.checkinDate.ToString()&checkoutdate=@item.checkoutDate.ToString()&currency=@item.currency&imageURL=@item.photoMainUrl" class="btn roberto-btn mt-30">Detay Gör</a>
+                </div>
+
+            </div>
+        }
+
+
+
+    </div>
+</section>

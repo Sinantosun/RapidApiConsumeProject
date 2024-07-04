@@ -1,0 +1,187 @@
+﻿@model HotelDetailViewModel
+@{
+    ViewData["Title"] = "GetHotelDetails";
+    Layout = "~/Views/UILayout/Index.cshtml";
+    string icon = "";
+    int count = 0;
+    int count2 = 0;
+    int count5 = -1;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(@TempData["imageURL"]);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-end">
+                <div class="col-12">
+                    <div class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
+                        <h2 class="room-title">@Model.hotel_name</h2>
+                        <h2 class="room-price">@Model.composite_price_breakdown.all_inclusive_amount.value.ToString() @Model.composite_price_breakdown.all_inclusive_amount.currency.ToString()  <span></span></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="roberto-rooms-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-12">
+                    <!-- Single Room Details Area -->
+                    <div class="single-room-details-area mb-50">
+                        <!-- Room Thumbnail Slides -->
+                        <div class="room-thumbnail-slides mb-50">
+                            <div id="room-thumbnail--slide" class="carousel slide" data-ride="carousel">
+
+                                <div class="carousel-inner">
+                                    @foreach (var item in ViewBag.PhotoImages as List<HotelFiltredViewModel>)
+                                    {
+                                        count++;
+                                        <div class="carousel-item @(count==1?"active":"")">
+                                            <img src="@item.Image" class="d-block w-100" alt="">
+                                        </div>
+                                    }
+                                </div>
+
+                                <ol class="carousel-indicators">
+                                    @foreach (var item in ViewBag.PhotoImages as List<HotelFiltredViewModel>)
+                                    {
+                                        count2++;
+                                        count5++;
+
+                                        <li data-target="#room-thumbnail--slide" data-slide-to="@count5" class=@(count2==1?"active":"")>
+                                            <img src="@item.Image" class="d-block w-100" alt="">
+                                        </li>
+                                    }
+                                </ol>
+
+                            </div>
+                        </div>
+
+                        <!-- Room Features -->
+                        <div class="room-features-area d-flex flex-wrap mb-50">
+                            <h6>Ortalama Oda M<sup>2</sup> <span>@Model.average_room_size_for_ufi_m2</span></h6>
+                            <h6>Yetişkin Sayısı: <span>@Model.room_recommendation[0].adults</span></h6>
+                            <h6>Çocuk Sayısı: <span>@Model.room_recommendation[0].children</span></h6>
+                            <h6>Kahvaltı değerlendirmesi: <span>@Model.breakfast_review_score.rating</span></h6>
+                        </div>
+
+                        <p>@ViewBag.Desrcipton</p>
+
+                    </div>
+
+                    <!-- Room Service -->
+                    <div class="room-service mb-50">
+                        <h4>Hizmetler</h4>
+                        <ul>
+                            @for (int i = 0; i < Model.top_ufi_benefits.Count(); i++)
+                            {
+                                icon = "icon" + (i + 1) + ".png";
+                                <li><img src="~/roberto-master/img/core-img/@icon" alt=""> @Model.top_ufi_benefits[i].translated_name</li>
+                            }
+
+                        </ul>
+
+                    </div>
+
+                    <!-- Room Review -->
+                    <div class="room-review-area mb-100">
+                        <h4>Room Review</h4>
+
+                        <!-- Single Review Area -->
+                        <div class="single-room-review-area d-flex align-items-center">
+                            <div class="reviwer-thumbnail">
+                                <img src="img/bg-img/53.jpg" alt="">
+                            </div>
+                            <div class="reviwer-content">
+                                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
+                                    <div class="reviwer-title">
+                                        <span>27 Aug 2019</span>
+                                        <h6>Brandon Kelley</h6>
+                                    </div>
+                                    <div class="reviwer-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Review Area -->
+                        <div class="single-room-review-area d-flex align-items-center">
+                            <div class="reviwer-thumbnail">
+                                <img src="img/bg-img/54.jpg" alt="">
+                            </div>
+                            <div class="reviwer-content">
+                                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
+                                    <div class="reviwer-title">
+                                        <span>27 Aug 2019</span>
+                                        <h6>Sounron Masha</h6>
+                                    </div>
+                                    <div class="reviwer-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Review Area -->
+                        <div class="single-room-review-area d-flex align-items-center">
+                            <div class="reviwer-thumbnail">
+                                <img src="img/bg-img/55.jpg" alt="">
+                            </div>
+                            <div class="reviwer-content">
+                                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
+                                    <div class="reviwer-title">
+                                        <span>27 Aug 2019</span>
+                                        <h6>Amada Lyly</h6>
+                                    </div>
+                                    <div class="reviwer-rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                </div>
+                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery 2.2.4 -->
+    <script src="~/roberto-master/js/jquery.min.js"></script>
+    <!-- Popper -->
+    <script src="~/roberto-master/js/popper.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/roberto-master/js/bootstrap.min.js"></script>
+    <!-- All Plugins -->
+    <script src="~/roberto-master/js/roberto.bundle.js"></script>
+    <!-- Active -->
+    <script src="~/roberto-master/js/default-assets/active.js"></script>
+
+</body>
+
+</html>
+

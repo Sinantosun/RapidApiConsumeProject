@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\deluxe-master\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\css\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\css\bootstrap\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\css\css\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\fonts\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\fonts\flaticon\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\fonts\ionicons\fonts\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\images\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\js\.DS_Store" />
+    <None Include="wwwroot\deluxe-master\scss\.DS_Store" />
+    <None Include="wwwroot\roberto-master\.sass-cache\357264b6bcfa5688031be03143d19ce337b692cf\_color.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\357264b6bcfa5688031be03143d19ce337b692cf\_fonts.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\357264b6bcfa5688031be03143d19ce337b692cf\_responsive.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\357264b6bcfa5688031be03143d19ce337b692cf\_variables.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\style.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_about.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_backtotop.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_blog.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_breadcrumb.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_buttons.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_contact.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_cta.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_footer.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_header.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_heading.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_hero.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_partner.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_preloader.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_project.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_reboot.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_room.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_spacing.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_testimonial.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\3902a1fa82042bed87224f4e74fbe61239086016\_widget.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\e5c5155ff3084da2ff3dce897af03a531ae2c329\_flex.scssc" />
+    <None Include="wwwroot\roberto-master\.sass-cache\e5c5155ff3084da2ff3dce897af03a531ae2c329\_miscellaneous.scssc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+
+</Project>
