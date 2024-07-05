@@ -24,7 +24,7 @@ namespace RapidApiConsumeProject.ViewComponents
                 response.EnsureSuccessStatusCode();
                 var body = await response.Content.ReadAsStringAsync();
                 var resultJson = JsonConvert.DeserializeObject<ResultRoomsViewModel>(body);
-                return View(resultJson.results.Take(3).ToList());
+                return View(resultJson.results.Take(10).ToList());
             }
         }
     }

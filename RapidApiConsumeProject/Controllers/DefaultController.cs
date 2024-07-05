@@ -70,12 +70,17 @@ namespace RapidApiConsumeProject.Controllers
                                 });
                             }
 
-                         
+
                         }
                     }
                 }
 
                 ViewBag.PhotoImages = model.Take(5).ToList();
+
+
+
+
+     
 
 
 

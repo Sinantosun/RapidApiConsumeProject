@@ -1,0 +1,66 @@
+﻿@model HotelReviewViewModel
+<div class="room-review-area mb-100">
+    <h4>Değerlendirmeler</h4>
+
+   
+    @foreach (var item in Model.result)
+    {
+        <div class="single-room-review-area d-flex align-items-center">
+            <div class="reviwer-thumbnail">
+                @if (!string.IsNullOrEmpty(item.author.avatar))
+                {
+                    <img src="@item.author.avatar" alt="">
+                }
+                else
+                {
+                    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="">
+                }
+              
+            </div>
+            <div class="reviwer-content">
+                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
+                    <div class="reviwer-title">
+                        <span>@item.date</span>
+                        <h6>@item.author.name</h6>
+                    </div>
+                    <div class="reviwer-rating">
+                        @for (int i = 1; i <= item.average_score; i++)
+                        {
+                            <i class="fa fa-star"></i>
+                        }
+                        @for (int i = 1; i <= 5 - item.average_score; i++)
+                        {
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+
+                        }
+
+                    </div>
+                </div>
+                <p>@item.title</p>
+
+                @if (!string.IsNullOrEmpty(item.hotelier_response))
+                {
+                    <br />
+
+                    <div class="reviwer-content">
+                        <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
+                            <div class="reviwer-title">
+                                <span>Yanıt</span>
+                            </div>
+                        </div>
+                        <p>@item.hotelier_response</p>
+                    </div>
+                }
+               
+
+            </div>
+        </div>
+    }
+      
+  
+
+
+
+
+
+</div>

@@ -6,7 +6,6 @@
     int count = 0;
     int count2 = 0;
     int count5 = -1;
-
 }
 
 <!DOCTYPE html>
@@ -42,7 +41,7 @@
                                     {
                                         count++;
                                         <div class="carousel-item @(count==1?"active":"")">
-                                            <img src="@item.Image" class="d-block w-100" alt="">
+                                            <img src="@item.Image" style="width:500px;height:500px;" class="d-block w-100" alt="">
                                         </div>
                                     }
                                 </div>
@@ -54,7 +53,7 @@
                                         count5++;
 
                                         <li data-target="#room-thumbnail--slide" data-slide-to="@count5" class=@(count2==1?"active":"")>
-                                            <img src="@item.Image" class="d-block w-100" alt="">
+                                            <img src="@item.Image" style="width:100px;height:100px;" class="d-block w-100" alt="">
                                         </li>
                                     }
                                 </ol>
@@ -88,80 +87,8 @@
 
                     </div>
 
-                    <!-- Room Review -->
-                    <div class="room-review-area mb-100">
-                        <h4>Room Review</h4>
 
-                        <!-- Single Review Area -->
-                        <div class="single-room-review-area d-flex align-items-center">
-                            <div class="reviwer-thumbnail">
-                                <img src="img/bg-img/53.jpg" alt="">
-                            </div>
-                            <div class="reviwer-content">
-                                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
-                                    <div class="reviwer-title">
-                                        <span>27 Aug 2019</span>
-                                        <h6>Brandon Kelley</h6>
-                                    </div>
-                                    <div class="reviwer-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Review Area -->
-                        <div class="single-room-review-area d-flex align-items-center">
-                            <div class="reviwer-thumbnail">
-                                <img src="img/bg-img/54.jpg" alt="">
-                            </div>
-                            <div class="reviwer-content">
-                                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
-                                    <div class="reviwer-title">
-                                        <span>27 Aug 2019</span>
-                                        <h6>Sounron Masha</h6>
-                                    </div>
-                                    <div class="reviwer-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Review Area -->
-                        <div class="single-room-review-area d-flex align-items-center">
-                            <div class="reviwer-thumbnail">
-                                <img src="img/bg-img/55.jpg" alt="">
-                            </div>
-                            <div class="reviwer-content">
-                                <div class="reviwer-title-rating d-flex align-items-center justify-content-between">
-                                    <div class="reviwer-title">
-                                        <span>27 Aug 2019</span>
-                                        <h6>Amada Lyly</h6>
-                                    </div>
-                                    <div class="reviwer-rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                </div>
-                                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                            </div>
-                        </div>
-
-                    </div>
+                    @await Component.InvokeAsync("_HotelReviewComponentPartial", new {id = Model.hotel_id})
                 </div>
 
 
