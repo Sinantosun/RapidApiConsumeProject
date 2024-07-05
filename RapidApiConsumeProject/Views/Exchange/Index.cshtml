@@ -1,0 +1,39 @@
+﻿@model ResultExchangeViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+
+<div class="roberto-rooms-area section-padding-100-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-12">
+                <h1 class="text-muted mb-25">Döviz Listesi</h1>
+                <div class="single-room-details-area mb-50">
+                    <div class="room-features-area d-flex flex-wrap mb-50">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th style="width:80px">#</th>
+                                <td>Birim Fiyat</td>
+
+                            </tr>
+
+                            @foreach (var item in Model.exchange_rates)
+                            { 
+                                <tr>
+                                    <td>1 TL</td>
+                                    <td>@Convert.ToDecimal((item.exchange_rate_buy.Replace(".", ","))).ToString("0.000") @item.currency</td>
+
+
+                                </tr>
+                            }
+
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

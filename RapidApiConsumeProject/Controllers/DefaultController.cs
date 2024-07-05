@@ -78,13 +78,6 @@ namespace RapidApiConsumeProject.Controllers
                 ViewBag.PhotoImages = model.Take(5).ToList();
 
 
-
-
-     
-
-
-
-
                 TempData["imageURL"] = imageURL;
                 var client = new HttpClient();
                 var request = new HttpRequestMessage
