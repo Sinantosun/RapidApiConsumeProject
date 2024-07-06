@@ -22,7 +22,7 @@ namespace RapidApiConsumeProject.Controllers
                 RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/description?hotel_id={id}&locale=en-gb"),
                 Headers =
     {
-        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
             };
@@ -44,7 +44,7 @@ namespace RapidApiConsumeProject.Controllers
                 RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/photos?hotel_id={id}&locale=en-gb"),
                 Headers =
     {
-        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
             };
@@ -86,7 +86,7 @@ namespace RapidApiConsumeProject.Controllers
                     RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/details?currency={currency}&locale=en-gb&checkout_date={checkoutdate}&hotel_id={id}&checkin_date={checkindate}"),
                     Headers =
     {
-        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
                 };
@@ -110,7 +110,7 @@ namespace RapidApiConsumeProject.Controllers
                 RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={model.Name}&locale=en-gb"),
                 Headers =
             {
-                { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+                { "x-rapidapi-key", "rapid api key" },
                 { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
             },
             };
@@ -129,7 +129,7 @@ namespace RapidApiConsumeProject.Controllers
                     RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/search?children_number={model.ChildrenCount}&locale=en-gb&children_ages=0&filter_by_currency={model.Currency}&checkin_date={convertCheckInDate}&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&dest_type=city&dest_id={id[0].dest_id}&adults_number={model.AdultCount}&checkout_date={convertCheckOutDate}&order_by=popularity&include_adjacency=true&room_number={model.RoomCount}&page_number=0&units=metric"),
                     Headers =
             {
-                { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+                { "x-rapidapi-key", "rapid api key" },
                 { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
             },
                 };

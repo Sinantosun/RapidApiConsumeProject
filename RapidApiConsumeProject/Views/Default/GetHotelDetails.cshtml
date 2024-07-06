@@ -63,13 +63,20 @@
 
                         <!-- Room Features -->
                         <div class="room-features-area d-flex flex-wrap mb-50">
-                            <h6>Ortalama Oda M<sup>2</sup> <span>@Model.average_room_size_for_ufi_m2</span></h6>
+                            <h6>Müsait Oda Sayısı <span>@Model.available_rooms</span></h6>
+
                             <h6>Yetişkin Sayısı: <span>@Model.room_recommendation[0].adults</span></h6>
                             <h6>Çocuk Sayısı: <span>@Model.room_recommendation[0].children</span></h6>
                             <h6>Kahvaltı değerlendirmesi: <span>@Model.breakfast_review_score.rating</span></h6>
                         </div>
 
                         <p>@ViewBag.Desrcipton</p>
+                        <br />
+                        <hr />
+                        <p>Is City Center: <span>@(Model.is_city_center == 1 ? "Yes" : "No")</span></p>
+                        <p>
+                            Is breakfast included : <span>@(Model.hotel_include_breakfast == 1 ? "Yes" : "No")</span>
+                        </p>
 
                     </div>
 
@@ -81,7 +88,7 @@
                             {
                                 icon = "icon" + (i + 1) + ".png";
                                 <li><img src="~/roberto-master/img/core-img/@icon" alt=""> @Model.top_ufi_benefits[i].translated_name</li>
-                      
+
                             }
 
                         </ul>
@@ -89,7 +96,7 @@
                     </div>
 
 
-                    @await Component.InvokeAsync("_HotelReviewComponentPartial", new {id = Model.hotel_id})
+                    @await Component.InvokeAsync("_HotelReviewComponentPartial", new { id = Model.hotel_id })
                 </div>
 
 

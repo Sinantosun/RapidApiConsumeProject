@@ -15,7 +15,7 @@ namespace RapidApiConsumeProject.ViewComponents
                 RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/reviews?customer_type=solo_traveller%2Creview_category_group_of_friends&locale=en-gb&sort_type=SORT_MOST_RELEVANT&language_filter=en-gb%2Cde%2Cfr&hotel_id={id}&page_number=0"),
                 Headers =
     {
-        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+        { "x-rapidapi-key", "rapid api key" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
             };
