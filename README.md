@@ -23,8 +23,8 @@ Bu projede Rapid api de bulunan Bookingcom apisini tükettik.
  
 ![image07](https://github.com/Sinantosun/RapidApiConsumeProject/assets/145317724/77eac538-2443-4892-b697-6495a7f5daa3)
 
-📌 Otel ile bütün detaylar burada yer alior otelin müsait oda sayısı yetkişkin sayıları vb. <br>
-📌 alt kısımda otele ait hizmetler bulunuyor.
+📌 Otel ile bütün detaylar burada yer alior otelin müsait oda sayısı yetkişkin sayıları<br>
+📌 Alt kısımda otele ait hizmetler bulunuyor.
 
 
 ![image08](https://github.com/Sinantosun/RapidApiConsumeProject/assets/145317724/9c05668f-8411-4292-a37f-b3efb064138d)
