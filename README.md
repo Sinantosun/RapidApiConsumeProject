@@ -29,6 +29,6 @@ Bu projede Rapid api de bulunan Bookingcom apisini tükettik.
 
 ![image08](https://github.com/Sinantosun/RapidApiConsumeProject/assets/145317724/9c05668f-8411-4292-a37f-b3efb064138d)
 
-📌 Otelin yorumları burada görünüyor
+📌 Otelin yorumları burada görünüyor<br>
 📌 Eğer otel tarafından yorum yanıtlanmış ise otelin yanıtı burada görünüyor.
 
