@@ -19,7 +19,7 @@
                 <div class="col-12">
                     <div class="breadcrumb-content d-flex align-items-center justify-content-between pb-5">
                         <h2 class="room-title">@Model.hotel_name</h2>
-                        <h2 class="room-price">@Model.composite_price_breakdown.all_inclusive_amount.value.ToString() @Model.composite_price_breakdown.all_inclusive_amount.currency.ToString()  <span></span></h2>
+                        <h2 class="room-price">@Model.composite_price_breakdown.all_inclusive_amount.value.ToString() @Model.composite_price_breakdown.all_inclusive_amount.currency.ToString()   <span></span></h2>
                     </div>
                 </div>
             </div>
@@ -81,6 +81,7 @@
                             {
                                 icon = "icon" + (i + 1) + ".png";
                                 <li><img src="~/roberto-master/img/core-img/@icon" alt=""> @Model.top_ufi_benefits[i].translated_name</li>
+                      
                             }
 
                         </ul>

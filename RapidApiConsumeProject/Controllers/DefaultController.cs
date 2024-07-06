@@ -15,47 +15,47 @@ namespace RapidApiConsumeProject.Controllers
 
         public async Task<IActionResult> GetHotelDetails(int id, string checkindate, string checkoutdate, string currency, string imageURL)
         {
-            var client2 = new HttpClient();
-            var request2 = new HttpRequestMessage
+            var ClientForDescriptionAPI = new HttpClient();
+            var RequestForDescriptionAPI = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/description?hotel_id={id}&locale=en-gb"),
                 Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
             };
-            using (var response2 = await client2.SendAsync(request2))
+            using (var ResponseForDescriptionAPI = await ClientForDescriptionAPI.SendAsync(RequestForDescriptionAPI))
             {
-                response2.EnsureSuccessStatusCode();
-                var body2 = await response2.Content.ReadAsStringAsync();
-                var value2 = JsonConvert.DeserializeObject<HotelDescriptionViewModel>(body2);
-                ViewBag.Desrcipton = value2.description;
+                ResponseForDescriptionAPI.EnsureSuccessStatusCode();
+                var ResponseConentBodyForHotelDescription = await ResponseForDescriptionAPI.Content.ReadAsStringAsync();
+                var HotelDescriptionsResult = JsonConvert.DeserializeObject<HotelDescriptionViewModel>(ResponseConentBodyForHotelDescription);
+                ViewBag.Desrcipton = HotelDescriptionsResult.description;
 
             }
 
 
 
-            var client3 = new HttpClient();
-            var request3 = new HttpRequestMessage
+            var ClientForHotelImagesAPI = new HttpClient();
+            var RequestForImagesAPI = new HttpRequestMessage
             {
                 Method = HttpMethod.Get,
                 RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/photos?hotel_id={id}&locale=en-gb"),
                 Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
             };
-            using (var response3 = await client3.SendAsync(request3))
+            using (var ResponseForImagesAPI = await ClientForHotelImagesAPI.SendAsync(RequestForImagesAPI))
             {
-                response3.EnsureSuccessStatusCode();
-                var body3 = await response3.Content.ReadAsStringAsync();
-                var value2 = JsonConvert.DeserializeObject<List<HotelPhotosViewModel>>(body3);
+                ResponseForImagesAPI.EnsureSuccessStatusCode();
+                var ResponseContentForHotelImaages = await ResponseForImagesAPI.Content.ReadAsStringAsync();
+                var HotelImagesResult = JsonConvert.DeserializeObject<List<HotelPhotosViewModel>>(ResponseContentForHotelImaages);
                 List<HotelFiltredViewModel> model = new List<HotelFiltredViewModel>();
 
-                foreach (var item in value2)
+                foreach (var item in HotelImagesResult)
                 {
                     for (int i = 0; i < item.tags.Count(); i++)
                     {
@@ -79,33 +79,73 @@ namespace RapidApiConsumeProject.Controllers
 
 
                 TempData["imageURL"] = imageURL;
-                var client = new HttpClient();
-                var request = new HttpRequestMessage
+                var ClientForDefaultPageHotelRoomsAPI = new HttpClient();
+                var RequestForDefaultPageHotelRoomAPI = new HttpRequestMessage
                 {
                     Method = HttpMethod.Get,
                     RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/details?currency={currency}&locale=en-gb&checkout_date={checkoutdate}&hotel_id={id}&checkin_date={checkindate}"),
                     Headers =
     {
-        { "x-rapidapi-key", "26a94699b7mshf92c10fadb7e461p155d6cjsn8e4aae7a4ad2" },
+        { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
         { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
     },
                 };
-                using (var response = await client.SendAsync(request))
+                using (var ResponseForDefaultPageHotelRoomsAPI = await ClientForDefaultPageHotelRoomsAPI.SendAsync(RequestForDefaultPageHotelRoomAPI))
                 {
-                    response.EnsureSuccessStatusCode();
-                    var body = await response.Content.ReadAsStringAsync();
-                    var value = JsonConvert.DeserializeObject<HotelDetailViewModel>(body);
+                    ResponseForDefaultPageHotelRoomsAPI.EnsureSuccessStatusCode();
+                    var DefaultPageResult = await ResponseForDefaultPageHotelRoomsAPI.Content.ReadAsStringAsync();
+                    var value = JsonConvert.DeserializeObject<HotelDetailViewModel>(DefaultPageResult);
                     return View(value);
                 }
-
-
-
-
-
-
-
-
             }
         }
+
+        public async Task<IActionResult> SearchHotels(SearchHotelViewModel model)
+        {
+            ViewBag.LocationName = model.Name;
+            var ClientForLocationAPI = new HttpClient();
+            var RequestForLocationAPI = new HttpRequestMessage
+            {
+                Method = HttpMethod.Get,
+                RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v1/hotels/locations?name={model.Name}&locale=en-gb"),
+                Headers =
+            {
+                { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+                { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
+            },
+            };
+            using (var ResponseForLocationAPI = await ClientForLocationAPI.SendAsync(RequestForLocationAPI))
+            {
+                ResponseForLocationAPI.EnsureSuccessStatusCode();
+                var LocationResult = await ResponseForLocationAPI.Content.ReadAsStringAsync();
+                var id = JsonConvert.DeserializeObject<List<GetDestinationViewModel>>(LocationResult);
+                string convertCheckInDate = model.CheckInDate.ToString("yyyy-MM-dd");
+                string convertCheckOutDate = model.CheckOutDate.ToString("yyyy-MM-dd");
+
+                var ClientForSearchPageAPI = new HttpClient();
+                var RequestForSearchPageAPI = new HttpRequestMessage
+                {
+                    Method = HttpMethod.Get,
+                    RequestUri = new Uri($"https://booking-com.p.rapidapi.com/v2/hotels/search?children_number={model.ChildrenCount}&locale=en-gb&children_ages=0&filter_by_currency={model.Currency}&checkin_date={convertCheckInDate}&categories_filter_ids=class%3A%3A2%2Cclass%3A%3A4%2Cfree_cancellation%3A%3A1&dest_type=city&dest_id={id[0].dest_id}&adults_number={model.AdultCount}&checkout_date={convertCheckOutDate}&order_by=popularity&include_adjacency=true&room_number={model.RoomCount}&page_number=0&units=metric"),
+                    Headers =
+            {
+                { "x-rapidapi-key", "d234545be3msh80284519f140985p113e8djsn92304e361f9a" },
+                { "x-rapidapi-host", "booking-com.p.rapidapi.com" },
+            },
+                };
+                using (var ResponseForSearchAPI = await ClientForSearchPageAPI.SendAsync(RequestForSearchPageAPI))
+                {
+                    ResponseForSearchAPI.EnsureSuccessStatusCode();
+                    var SearchResult = await ResponseForSearchAPI.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<FilterHotelViewModel>(SearchResult);
+                    return View(result.results.ToList());
+                }
+
+            }
+
+     
+        }
+
+
     }
 }

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "SearchHotels";
+    Layout = "~/Views/UILayout/Index.cshtml";
+}
+@model List<FilterHotelViewModel.Result>
+@* @ViewBag.LocationName *@
+<div class="container">
+
+
+    <section class="roberto-blog-area section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- Section Heading -->
+                <div class="col-12">
+                    <div class="section-heading text-center wow fadeInUp" data-wow-delay="100ms">
+                        <h6>Arama İşlemİ</h6>
+                        <h2>@ViewBag.LocationName  için sonuçlar</h2>
+                        <br />
+                        <small>@Model.Count() Kayıt Bulundu</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                @foreach (var item in Model)
+                {
+           
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-post-area mb-100 wow fadeInUp" data-wow-delay="300ms">
+                        
+                            <a href="/Default/GetHotelDetails/@item.id?checkindate=@item.checkinDate.ToString()&checkoutdate=@item.checkoutDate.ToString()&currency=@item.priceBreakdown.grossPrice.currency&imageURL=@item.photoMainUrl" class="post-thumbnail"><img style="width:250px; height:250px" src="@item.photoMainUrl" alt=""></a>
+                     
+                            <div class="post-meta">
+                                <a href="#" class="post-date">@item.reviewScoreWord</a>
+                            </div>
+                     
+                            <a href="#" class="post-title">@item.name</a>
+                            <p>Giriş Tarihi : @item.checkinDate</p>
+                           
+                            <p>Çıkış Tarihi : @item.checkoutDate</p>
+                        
+                            <p>Skor : @item.reviewScore</p>
+                            <p>Fiyat : @item.priceBreakdown.grossPrice.value.ToString("N0") @item.priceBreakdown.grossPrice.currency</p>
+                      
+                            <a href="index.html" class="btn continue-btn"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                }
+             
+
+            
+
+            </div>
+        </div>
+    </section>
+</div>
+
